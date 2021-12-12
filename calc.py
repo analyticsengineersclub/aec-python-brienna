@@ -21,8 +21,6 @@ mult.add_argument('ints_to_mult', nargs=2, type=int)
 div = subparsers.add_parser("div", help = "divide integers")
 div.add_argument('ints_to_div', nargs=2, type=int)
 
-args = parser.parse_args()
-
 def aec_subtract(ints_to_sub):
 	arg_1 = ints_to_sub[0]
 	arg_2 = ints_to_sub[1]
@@ -48,12 +46,18 @@ def aec_div(ints_to_div):
         print(f"The divided result is: {our_div}")
         return our_div
 
-if args.command == "add":
-    aec_add(args.ints_to_sum)
-elif args.command == "sub":
-    aec_subtract(args.ints_to_sub)
-elif args.command == "mult":
-    aec_mult(args.ints_to_mult)
-elif args.command == "div":
-    aec_div(args.ints_to_div)
+
+if __name__ == "__main__":
+    # Parse arguments from command line
+    args = parser.parse_args()
+
+    # Carry out operations according to passed arguments
+    if args.command == "add":
+        aec_add(args.ints_to_sum)
+    elif args.command == "sub":
+        aec_subtract(args.ints_to_sub)
+    elif args.command == "mult":
+        aec_mult(args.ints_to_mult)
+    elif args.command == "div":
+        aec_div(args.ints_to_div)
 
