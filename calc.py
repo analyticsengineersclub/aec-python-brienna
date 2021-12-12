@@ -19,7 +19,7 @@ mult = subparsers.add_parser("mult", help = "multiply integers")
 mult.add_argument('ints_to_mult', nargs=2, type=int)
 
 div = subparsers.add_parser("div", help = "divide integers")
-div.add_argument('ints_to_div', nargs=2, type=int)
+div.add_argument('ints_to_div', nargs="*", type=int)
 
 def aec_subtract(ints_to_sub):
     arg_1 = ints_to_sub[0]
@@ -41,6 +41,8 @@ def aec_mult(ints_to_mult):
     return our_mult
 
 def aec_div(ints_to_div):
+    if len(ints_to_div) > 2: 
+        raise TypeError("Too many arguments.")
     if ints_to_div[1] == 0: 
         print("Cannot divide by zero!")
     else: 
