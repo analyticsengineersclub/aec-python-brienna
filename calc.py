@@ -41,10 +41,10 @@ def aec_mult(ints_to_mult):
     return our_mult
 
 def aec_div(ints_to_div):
-    if args.ints_to_div[1] == 0: 
+    if ints_to_div[1] == 0: 
         print("Cannot divide by zero!")
     else: 
-        our_div = args.ints_to_div[0] / args.ints_to_div[1] 
+        our_div = ints_to_div[0] / ints_to_div[1] 
         print(f"The divided result is: {our_div}")
         return our_div
 
