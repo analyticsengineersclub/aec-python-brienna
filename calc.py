@@ -23,19 +23,37 @@ div.add_argument('ints_to_div', nargs=2, type=int)
 
 args = parser.parse_args()
 
-if args.command == "add":
-    our_sum = sum(args.ints_to_sum)
+def aec_subtract(ints_to_sub):
+	arg_1 = ints_to_sub[0]
+	arg_2 = ints_to_sub[1]
+	our_sub = arg_1 - arg_2
+	print(f"The subtracted result is: {our_sub}")
+	return our_sub
+
+def aec_add(ints_to_sum):
+    our_sum = sum(ints_to_sum)
     print(f"The sum of values is: {our_sum}")
-elif args.command == "sub":
-    our_sub = args.ints_to_sub[0] - args.ints_to_sub[1]
-    print(f"The subtracted result is: {our_sub}")
-elif args.command == "mult":
-    our_mult = args.ints_to_mult[0] * args.ints_to_mult[1]
+    return our_sum
+
+def aec_mult(ints_to_mult):
+    our_mult = ints_to_mult[0] * ints_to_mult[1]
     print(f"The multiplied result is: {our_mult}")
-elif args.command == "div":
+    return our_mult
+
+def aec_div(ints_to_div):
     if args.ints_to_div[1] == 0: 
         print("Cannot divide by zero!")
     else: 
         our_div = args.ints_to_div[0] / args.ints_to_div[1] 
         print(f"The divided result is: {our_div}")
+        return our_div
+
+if args.command == "add":
+    aec_add(args.ints_to_sum)
+elif args.command == "sub":
+    aec_subtract(args.ints_to_sub)
+elif args.command == "mult":
+    aec_mult(args.ints_to_mult)
+elif args.command == "div":
+    aec_div(args.ints_to_div)
 
