@@ -22,11 +22,13 @@ div = subparsers.add_parser("div", help = "divide integers")
 div.add_argument('ints_to_div', nargs=2, type=int)
 
 def aec_subtract(ints_to_sub):
-	arg_1 = ints_to_sub[0]
-	arg_2 = ints_to_sub[1]
-	our_sub = arg_1 - arg_2
-	print(f"The subtracted result is: {our_sub}")
-	return our_sub
+    arg_1 = ints_to_sub[0]
+    arg_2 = ints_to_sub[1]
+    our_sub = arg_1 - arg_2
+    if our_sub < 0: 
+        our_sub = 0
+    print(f"The subtracted result is: {our_sub}")
+    return our_sub
 
 def aec_add(ints_to_sum):
     our_sum = sum(ints_to_sum)
