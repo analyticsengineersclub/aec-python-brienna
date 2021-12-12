@@ -43,8 +43,8 @@ def aec_mult(ints_to_mult):
 def aec_div(ints_to_div):
     if len(ints_to_div) > 2: 
         raise TypeError("Too many arguments.")
-    if ints_to_div[1] == 0: 
-        print("Cannot divide by zero!")
+    elif ints_to_div[1] == 0: 
+        raise ZeroDivisionError
     else: 
         our_div = ints_to_div[0] / ints_to_div[1] 
         print(f"The divided result is: {our_div}")
